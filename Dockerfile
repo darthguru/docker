@@ -1,7 +1,7 @@
 
-FROM python:2.7
+FROM resin/raspberrypi3-python:2.7.13
 EXPOSE 5000
-LABEL maintainer "gaetancollaud@gmail.com"
+LABEL maintainer "darthguru42@gmail.com"
 
 ENV CURA_VERSION=15.04.6
 ARG tag=master
@@ -16,7 +16,7 @@ WORKDIR /opt/octoprint
 
 #install ffmpeg
 RUN cd /tmp \
-  && wget -O ffmpeg.tar.xz https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz \
+  && wget -O ffmpeg.tar.xz https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-armhf-32bit-static.tar.xz \
 	&& mkdir -p /opt/ffmpeg \
 	&& tar xvf ffmpeg.tar.xz -C /opt/ffmpeg --strip-components=1 \
   && rm -Rf /tmp/*
